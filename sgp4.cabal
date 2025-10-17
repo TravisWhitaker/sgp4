@@ -1,0 +1,97 @@
+cabal-version:      2.4
+name:               sgp4
+version:            0.1.0.0
+synopsis:           SGP4/SDP4
+description:
+    Haskell code for SGP4/SDP4
+    .
+
+
+homepage:           https://github.com/TravisWhitaker/sgp4
+bug-reports:        https://github.com/TravisWhitaker/sgp4
+license:            MIT
+license-file:       LICENSE
+author:             Travis Whitaker
+maintainer:         pi.boy.travis@gmail.com
+
+copyright:          Travis Whitaker 2025
+category:           Math
+extra-source-files:
+    CHANGELOG.md
+    README.md
+
+common common
+    default-language: Haskell2010
+    ghc-options: -O2
+                 -Weverything
+                 -Wcompat
+                 -- -Werror
+                 -Wno-unsafe
+                 -Wno-type-defaults
+                 -Wno-missing-safe-haskell-mode
+                 -Wno-implicit-prelude
+                 -Wno-missing-import-lists
+                 -Wno-prepositive-qualified-module
+                 -Wno-missing-kind-signatures
+                 -Wno-monomorphism-restriction
+                 -Wno-missing-role-annotations
+                 -Wno-missed-specialisations
+                 -Wno-all-missed-specialisations
+                 -Wno-error=missing-local-signatures
+
+library sgp4c
+    import:           common
+    exposed-modules:  Data.SGP4.C
+                      Data.SGP4.TLE
+    --other-modules:
+    build-depends:    base >=4.14 && <5
+                    , containers
+                    , linear
+                    , linear-geo
+    hs-source-dirs:   src
+    c-sources: cbits/SGP4.c
+    include-dirs: cbits
+    ghc-options:
+      -optc-Wall
+      -optc-Wextra
+      -optc-Werror
+      -optc-std=c99
+      -optc-Wno-dangling-else
+      -optc-Wno-format
+
+-- test-suite parse
+--     import:           common
+--     type:             exitcode-stdio-1.0
+--     hs-source-dirs:   test
+--     main-is:          Parse.hs
+--     build-depends:    base >=4.14 && <5
+--                     , async
+--                     , attoparsec
+--                     , bytestring
+--                     , containers
+--                     , directory
+--                     , filepath
+--                     , iers
+--     ghc-options:      -threaded
+--                       -rtsopts
+--                       "-with-rtsopts=-N"
+--                       -Wno-all-missed-specialisations
+
+-- test-suite roundtrip
+--     import:           common
+--     type:             exitcode-stdio-1.0
+--     hs-source-dirs:   test
+--     main-is:          RoundTrip.hs
+--     build-depends:    base >=4.14 && <5
+--                     , async
+--                     , attoparsec
+--                     , bytestring
+--                     , containers
+--                     , directory
+--                     , filepath
+--                     , serialise
+--                     , iers
+--     ghc-options:      -threaded
+--                       -rtsopts
+--                       "-with-rtsopts=-N"
+--                       -Wno-all-missed-specialisations

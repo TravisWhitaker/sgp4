@@ -1,0 +1,6 @@
+packages: ./
+
+source-repository-package
+    type: git
+    location: https://github.com/TravisWhitaker/linear-geo
+    tag: f95820c7caba41e4adec37cdce707c218f84fac4
