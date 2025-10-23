@@ -2273,7 +2273,6 @@ double* rp, double* rteosq, double* sinio, double* gsto, char opsmode
 						&satrec->revnum);
 				}
 
-
 			// ---- find no, ndot, nddot ----
 			satrec->no_kozai = satrec->no_kozai / xpdotp; //* rad/min
 			satrec->nddot = satrec->nddot * pow(10.0, nexp);
