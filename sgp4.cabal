@@ -64,7 +64,7 @@ library sgp4c
                     , linear-geo
                     , time
                     , sgp4:tle
-    hs-source-dirs:   src
+    hs-source-dirs:   sgp4c
     c-sources: cbits/SGP4.c
     include-dirs: cbits
     ghc-options:
@@ -74,6 +74,19 @@ library sgp4c
       -optc-std=c99
       -optc-Wno-dangling-else
       -optc-Wno-format
+
+library
+    import:           common
+    exposed-modules:  Data.SGP4
+    --other-modules:
+    build-depends:    base >=4.14 && <5
+                    , containers
+                    , linear
+                    , linear-geo
+                    , time
+                    , sgp4:tle
+                    , sgp4:sgp4c
+    hs-source-dirs:   src
 
 test-suite iss
      import:           common
