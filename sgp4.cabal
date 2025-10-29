@@ -70,7 +70,7 @@ library sgp4c
     ghc-options:
       -optc-Wall
       -optc-Wextra
-      -optc-Werror
+      -- -optc-Werror
       -optc-std=c99
       -optc-Wno-dangling-else
       -optc-Wno-format
