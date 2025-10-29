@@ -46,13 +46,6 @@ library tle
                     , linear-geo
                     , time
     hs-source-dirs:   tle
-    ghc-options:
-      -optc-Wall
-      -optc-Wextra
-      -optc-Werror
-      -optc-std=c99
-      -optc-Wno-dangling-else
-      -optc-Wno-format
 
 library sgp4c
     import:           common
@@ -68,12 +61,12 @@ library sgp4c
     c-sources: cbits/SGP4.c
     include-dirs: cbits
     ghc-options:
-      -optc-Wall
-      -optc-Wextra
+      -- -optc-Wall
+      -- -optc-Wextra
       -- -optc-Werror
       -optc-std=c99
-      -optc-Wno-dangling-else
-      -optc-Wno-format
+      -- -optc-Wno-dangling-else
+      -- -optc-Wno-format
 
 library
     import:           common
