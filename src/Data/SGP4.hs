@@ -1,6 +1,7 @@
 module Data.SGP4 (
     TLE(..)
-  , parseTLE
+  , parseTLENoNameLine
+  , parseTLEWithNameLine
   , SGP4(..)
   , sgp4Init
   , sgp4
